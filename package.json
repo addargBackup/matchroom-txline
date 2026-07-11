@@ -1,0 +1,22 @@
+{
+  "name": "matchroom",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MatchRoom — your group chat plays the World Cup match. Powered by TxLINE, refereed by the feed.",
+  "license": "MIT",
+  "scripts": {
+    "server": "tsx server/src/index.ts",
+    "demo": "tsx server/src/demo.ts",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["better-sqlite3"]
+  }
+}
