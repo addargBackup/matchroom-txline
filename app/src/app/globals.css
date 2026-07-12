@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-night text-neutral-100 antialiased;
+  overscroll-behavior: none;
+}
+
+.panel {
+  @apply rounded-2xl border border-edge bg-panel p-4;
+}
+.btn {
+  @apply rounded-xl px-4 py-3 text-sm font-bold transition active:scale-95 disabled:opacity-40 disabled:active:scale-100;
+}
+.btn-kick {
+  @apply btn bg-kick text-night;
+}
+.btn-ghost {
+  @apply btn border border-edge text-neutral-200;
+}
+.input {
+  @apply w-full rounded-xl border border-edge bg-night px-3 py-3 text-base outline-none focus:border-kick;
+}
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
