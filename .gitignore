@@ -5,3 +5,4 @@ node_modules/
 .DS_Store
 matchroom.db*
 server/dist/
+docs/DEMO_SCRIPT.md
