@@ -7,6 +7,11 @@ and the [TxLINE](https://txline.txodds.com) feed is the referee.
 
 Points only — a game of skill among friends (Kahoot, not sportsbook).
 
+**🔴 Live now:** [matchroom-txline-app.vercel.app](https://matchroom-txline-app.vercel.app) —
+running against the real 2026 World Cup Final (Spain vs Argentina) on TxLINE's
+live devnet feed. App on Vercel, game server on Render
+([matchroom-server.onrender.com](https://matchroom-server.onrender.com)).
+
 **📄 [Full technical documentation](docs/README.md)** — how every fact in this
 app traces back to TxLINE, core idea, technical/business highlights, endpoints
 used, and the judge runbook.
@@ -99,11 +104,13 @@ organic growth → white-label TV mode for pubs and creators.
       live momentum + quick-fire cards, Reckoning grading exactly matching
       the scoring table (including a real Judas bonus), TV mode standings
       in sync with the phone client
+- [x] Cloud deploy: app on Vercel, game server on Render (persistent Node host —
+      `server/` is stateful, SQLite + long-lived SSE, which doesn't fit a
+      serverless model). Verified live end-to-end: created a real room against
+      the actual 2026 World Cup Final fixture on Render's live devnet feed,
+      served through the deployed Vercel app. Root cause of an earlier silent
+      deploy failure: `tsx`'s native esbuild dependency didn't survive Render's
+      runtime; fixed by precompiling with `tsc` and running plain compiled JS
+      instead of transpiling on the fly in production.
 - [ ] TV-mode narrow-viewport polish; share-card image generation
-- [ ] Cloud deploy — intentionally deferred. `server/` is stateful (SQLite +
-      long-lived SSE connections per room), which doesn't fit a serverless
-      host the way ProofPlay's Next.js API routes did; a correct deploy needs
-      a persistent Node host (Railway/Render/Fly), not just Vercel. Judging
-      runs against the local runbook below instead, which is fully verified
-      and reproducible from a fresh clone.
 # matchroom-txline
