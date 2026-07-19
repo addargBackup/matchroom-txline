@@ -93,3 +93,4 @@ organic growth → white-label TV mode for pubs and creators.
       in-browser against the replay
 - [ ] TV-mode narrow-viewport polish; share-card image generation
 - [ ] Deploy (server: any Node host; app: Vercel with NEXT_PUBLIC_API_BASE)
+# matchroom-txline
