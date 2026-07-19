@@ -3,8 +3,11 @@ import Database from "better-sqlite3";
 import * as path from "node:path";
 
 const file = process.env.DB_FILE ?? path.resolve(process.cwd(), "matchroom.db");
+console.log(`[db] opening ${file}`);
 export const db = new Database(file);
+console.log("[db] opened, setting WAL mode");
 db.pragma("journal_mode = WAL");
+console.log("[db] WAL mode set, creating tables");
 
 db.exec(`
 CREATE TABLE IF NOT EXISTS players (

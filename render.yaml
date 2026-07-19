@@ -3,7 +3,7 @@ services:
     name: matchroom-server
     runtime: node
     plan: free
-    buildCommand: npm install -g pnpm@10 && pnpm install
+    buildCommand: npm install -g pnpm@10 && pnpm install && pnpm --filter matchroom-server rebuild better-sqlite3
     startCommand: pnpm server
     envVars:
       - key: TXLINE_API_TOKEN
