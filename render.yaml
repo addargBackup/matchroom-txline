@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: matchroom-server
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && corepack prepare pnpm@10 --activate && pnpm install
+    startCommand: pnpm server
+    envVars:
+      - key: TXLINE_API_TOKEN
+        sync: false
+      - key: NODE_VERSION
+        value: 22.14.0
