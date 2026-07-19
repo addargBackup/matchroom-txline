@@ -3,8 +3,8 @@ services:
     name: matchroom-server
     runtime: node
     plan: free
-    buildCommand: npm install -g pnpm@10 && pnpm install && pnpm --filter matchroom-server rebuild better-sqlite3
-    startCommand: echo "PATH=$PATH"; which node; node --version; which pnpm; pnpm --version; node -e "console.log('HELLO FROM PLAIN NODE'); require('http').createServer((_req,res)=>res.end('ok')).listen(process.env.PORT||8790,'0.0.0.0',()=>console.log('listening on '+(process.env.PORT||8790)))"
+    buildCommand: npm install -g pnpm@10 && pnpm install && pnpm --filter matchroom-server rebuild better-sqlite3 && npx tsc -p server/tsconfig.json
+    startCommand: node server/dist/index.js
     envVars:
       - key: TXLINE_API_TOKEN
         sync: false
