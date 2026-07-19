@@ -3,7 +3,7 @@ services:
     name: matchroom-server
     runtime: node
     plan: free
-    buildCommand: corepack enable && corepack prepare pnpm@10 --activate && pnpm install
+    buildCommand: npm install -g pnpm@10 && pnpm install
     startCommand: pnpm server
     envVars:
       - key: TXLINE_API_TOKEN
