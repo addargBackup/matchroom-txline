@@ -7,6 +7,10 @@ and the [TxLINE](https://txline.txodds.com) feed is the referee.
 
 Points only — a game of skill among friends (Kahoot, not sportsbook).
 
+**📄 [Full technical documentation](docs/README.md)** — how every fact in this
+app traces back to TxLINE, core idea, technical/business highlights, endpoints
+used, and the judge runbook.
+
 ## The three acts (mapped to TxLINE's coverage reality)
 
 | Act | When | Powered by |
@@ -91,6 +95,15 @@ organic growth → white-label TV mode for pubs and creators.
       353 momentum ticks, Reckoning with exact-score +750 and Judas +125)
 - [x] App: landing (nation picker), room (all three acts), TV mode — verified
       in-browser against the replay
+- [x] Re-verified end-to-end in a second full session: join, seal a thesis,
+      live momentum + quick-fire cards, Reckoning grading exactly matching
+      the scoring table (including a real Judas bonus), TV mode standings
+      in sync with the phone client
 - [ ] TV-mode narrow-viewport polish; share-card image generation
-- [ ] Deploy (server: any Node host; app: Vercel with NEXT_PUBLIC_API_BASE)
+- [ ] Cloud deploy — intentionally deferred. `server/` is stateful (SQLite +
+      long-lived SSE connections per room), which doesn't fit a serverless
+      host the way ProofPlay's Next.js API routes did; a correct deploy needs
+      a persistent Node host (Railway/Render/Fly), not just Vercel. Judging
+      runs against the local runbook below instead, which is fully verified
+      and reproducible from a fresh clone.
 # matchroom-txline
