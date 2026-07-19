@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     buildCommand: npm install -g pnpm@10 && pnpm install && pnpm --filter matchroom-server rebuild better-sqlite3
-    startCommand: pnpm server
+    startCommand: node -e "console.log('HELLO FROM PLAIN NODE'); require('http').createServer((_req,res)=>res.end('ok')).listen(process.env.PORT||8790,'0.0.0.0',()=>console.log('listening on '+(process.env.PORT||8790)))"
     envVars:
       - key: TXLINE_API_TOKEN
         sync: false
